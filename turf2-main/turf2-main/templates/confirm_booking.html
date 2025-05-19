@@ -1,0 +1,26 @@
+<!-- templates/confirm_booking.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Booking</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/turf.css') }}">
+</head>
+
+<body>
+    <h1>Confirm Booking Request</h1>
+    <form action="{{ url_for('confirm_booking', request_id=request.id) }}" method="POST">
+        <p>User: {{ request.user.username }}</p>
+        <p>Location: {{ request.location.name }}</p>
+        <p>Date: {{ request.date }}</p>
+        <p>Time: {{ request.time }}</p>
+        <p>Status: {{ request.status }}</p>
+        <label for="confirm">Confirm:</label>
+        <input type="checkbox" name="confirm" id="confirm">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
